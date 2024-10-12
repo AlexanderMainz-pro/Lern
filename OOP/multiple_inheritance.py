@@ -19,7 +19,7 @@ class StudentGroup():
 class Student(Human, StudentGroup):
     def __init__(self, name, place, group):#добавляем аргумент group123
         #Human.__init__(self, name)#передаём напрямую из класса конструктора
-        super().__init__(name, group)#метод супер позволяет обращяться к классу родителю Human
+        super().__init__(name, group)#метод супер позволяет обращаться к классу родителю Human
         self.place = place
         super().info()#позволяет обращаться к классу родителю
 

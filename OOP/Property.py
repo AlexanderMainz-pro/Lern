@@ -5,7 +5,7 @@ class Person:
         self.__name = name
         self.__old = old
 
-    @property #делет методом класса, можно посмотреть, но чтобы записсать -->
+    @property #делает методом класса, можно посмотреть, но чтобы записать -->
     def old(self):
         return self.__old
 
@@ -17,7 +17,7 @@ class Person:
     def old(self):
         del self.__old
 
-    #old = property() #get_old, set_oldтеперь обращение к скрытым свойствам идет через имя a.old
+    #old = property() #get_old, set_old теперь обращение к скрытым свойствам идет через имя a.old
     #old = old.setter(set_old) #для работы декораторов
     #old = old.getter(get_old)
 
