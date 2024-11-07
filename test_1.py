@@ -1,55 +1,38 @@
-import threading
-import random
+from threading import Thread
 import time
 
-class Bank:
-    def __init__(self):
-        self.balance = 0  # Начальный баланс
-        self.lock = threading.Lock()  # Создание объекта блокировки
 
-    def deposit(self):
-        for _ in range(100):
-            amount = random.randint(50, 500)  # Случайная сумма пополнения
-            with self.lock:  # Блокировка при изменении баланса
-                self.balance += amount
-                print(f"Пополнение: {amount}. Баланс: {self.balance}")
-                if self.balance >= 500:
-                    self.lock.release()  # Разблокировка при достижении необходимого баланса
-            time.sleep(0.001)  # Имитация скорости выполнения
+class Knight(Thread):
+    def __init__(self, name, power):
+        super().__init__()
+        self.name = name
+        self.power = power
+        self.enemies = 100  # Количество врагов для каждого рыцаря
+        self.days = 0
 
-    def take(self):
-        for _ in range(100):
-            amount = random.randint(50, 500)  # Случайная сумма снятия
-            print(f"Запрос на {amount}")
-            with self.lock:  # Блокировка при изменении баланса
-                if amount <= self.balance:  # Проверка, достаточно ли средств
-                    self.balance -= amount
-                    print(f"Снятие: {amount}. Баланс: {self.balance}")
-                else:
-                    print("Запрос отклонён, недостаточно средств")
-                    self.lock.acquire()  # Блокировка при недостатке средств
-            time.sleep(0.001)  # Имитация скорости выполнения
+    def run(self):
+        print(f"{self.name}, на нас напали!")
 
-# Создание объекта класса Bank
-bk = Bank()
-# Создание потоков для пополнения и снятия средств
-deposit_thread = threading.Thread(target=bk.deposit)
-take_thread = threading.Thread(target=bk.take)
+        while self.enemies > 0:
+            time.sleep(1)  # Задержка на 1 секунду
+            self.enemies -= self.power
+            self.days += 1
 
-# Запуск потоков
-deposit_thread.start()
-take_thread.start()
+            # Убедимся, что количество врагов не опустится ниже 0
+            remaining_enemies = max(0, self.enemies)
+            print(f"{self.name} сражается {self.days}..., осталось {remaining_enemies} воинов.")
 
-# Ожидание завершения потоков
-deposit_thread.join()
-take_thread.join()
+        print(f"{self.name} одержал победу спустя {self.days} дня(ей)!")
 
-th1 = threading.Thread(target=Bank.deposit, args=(bk,))
-th2 = threading.Thread(target=Bank.take, args=(bk,))
 
-th1.start()
-th2.start()
-th1.join()
-th2.join()
+# Создание и запуск двух потоков
+first_knight = Knight('Sir Lancelot', 10)
+second_knight = Knight("Sir Galahad", 20)
 
-print(f'Итоговый баланс: {bk.balance}')
+first_knight.start()
+second_knight.start()
+
+# Ждем завершения обоих потоков
+first_knight.join()
+second_knight.join()
+print("Все битвы закончились")
