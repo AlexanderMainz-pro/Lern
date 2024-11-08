@@ -1,6 +1,5 @@
 from OOP.Call import Count
 
-
 class Clock:
     __DAY = 86400
 
