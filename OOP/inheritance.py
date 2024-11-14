@@ -1,7 +1,7 @@
 class Geom:
     name = "John"
 
-    def set_cords(self, x1, x2, y1, y2):#self может ссылаться не только на объект кдасса,но и на дочерний объект
+    def set_cords(self, x1, x2, y1, y2):#self может ссылаться не только на объект класса, но и на дочерний объект
         self.x1 = x1
         self.x2 = x2
         self.y1 = y1
@@ -30,3 +30,4 @@ print(l.name)
 print(r.name)
 l.draw()
 r.draw()
+l.draw()

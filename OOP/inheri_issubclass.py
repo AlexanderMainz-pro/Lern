@@ -4,7 +4,7 @@ class Geom:#автоматически наследуется от object
 class Line(Geom):
     pass
 
-class Vector(list):#переопределяе стандартный класс list
+class Vector(list):#переопределяем стандартный класс list
     def __str__(self):
         return " ".join(map(str, self))
 
