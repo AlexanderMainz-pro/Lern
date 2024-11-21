@@ -2,7 +2,7 @@ class Geom:
     name = "Geom"
 
     def __init__(self, x1, x2, y1, y2):#общий класса, который вызывается для обоих дочерних классов
-        print(f"инициализытор{self.__class__}")
+        print(f"инициализытор {self.__class__}")
         self.x1 = x1
         self.x2 = x2
         self.y1 = y1
