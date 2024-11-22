@@ -17,7 +17,7 @@ class FRange:
         else:
             raise StopIteration
 
-class FRange2D:#формирует списки
+class FRange2D: #формирует списки
     def _init__(self, start=0.0, stop=0.0, step=0.5, rows=5):
         self.rows = rows
         self.fr = FRange(start, stop, step)
