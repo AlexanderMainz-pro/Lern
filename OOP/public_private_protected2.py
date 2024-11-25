@@ -4,7 +4,7 @@ class Geom:
     def __init__(self, x1, x2, y1, y2):
         print(f"Инициализатор Geom{self.__class__}")
         self.__verify_coord__()
-        self._x1 = x1 #скрытые аргументы жёстко привязанны к ккласу, можно через protected
+        self._x1 = x1 #скрытые аргументы жёстко привязаны к классу, можно через protected
         self._x2 = x2
         self._y1 = y1
         self._y2 = y2
