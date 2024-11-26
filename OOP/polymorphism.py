@@ -1,13 +1,13 @@
-class Geom: #если забудем гненибуть указать метод, по умолчанию вызовется метод базового класса
+class Geom: #если забудем где-нибуть указать метод, по умолчанию вызовется метод базового класса
     def get_pt(self):
-        raise  NotImplementedError("В дочернем классе олжен быть переопределён метод get_pt")
+        raise  NotImplementedError("В дочернем классе должен быть переопределён метод get_pt")
 
 class Rectangle(Geom):
     def __init__(self, x, y):
         self.x = x
         self.y = y
 
-    def get_pr(self):
+    def get_pr(self): #метод должен называться одинаково во всех объектах, тот самый полиморфизм
         return 2 * (self.x + self.y)
 
 
@@ -40,7 +40,7 @@ t2 = Triangle(4, 5, 6)
 
 geom = [r1, r2, s1, s2, t1, t2]# можно сразу запихивать в список, более красиво и лаконично
 
-#for g in geom: #можно решить влоб, но не лучшая реализация
+#for g in geom: #можно решить в лоб, но не лучшая реализация
 #        print(g.get_rect_pr())
 #    else:
 #        print(g.get_sq_pr())
