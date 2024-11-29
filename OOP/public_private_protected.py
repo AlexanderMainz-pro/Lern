@@ -19,7 +19,7 @@ class Point():
         else:
            raise ValueError('Входные данные должны быть числами')
 
-    def get_coord(self):#геттер
+    def get_coord(self): #геттер
         return self.__x, self.__y
 
 
