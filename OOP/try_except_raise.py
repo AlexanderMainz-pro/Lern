@@ -7,5 +7,10 @@ class PrintData:# собственно печатает данные
         if not self.send_to_print(data):
             raise Exception("принтер не отвечает")
 
-    def send_to_print(self, data):#проверяет, може печатать данные или нет
+    def send_to_print(self, data):#проверяет, может печатать данные или нет
         return False
+
+p = PrintData
+try:
+    p.print("123")
+except
