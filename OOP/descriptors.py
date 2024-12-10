@@ -7,7 +7,7 @@ class Integer: #универсальный инструмент
     def __set_name__(self, owner, name): #owner-ссылка на класс, name- ссылка на объект
         self.name = "_" + name
 
-    def __get__(self , instance, owner): #instance-ссылка на текущий экземпляр класс
+    def __get__(self , instance, owner):  #instance-ссылка на текущий экземпляр класс
         return  getattr(instance, self.name)
 
     def __set__(self, instance, value):
