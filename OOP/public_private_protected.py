@@ -10,7 +10,7 @@ class Point():
     @private #не сможем вызваать няпрямую методы
     @classmethod #метод класса
     def check_value(cls, x):
-        return type(x) in (int, float) #проверка на числа, после вызываем в методе set_coord
+        return type(x) in (int, float)#проверка на числа, после вызываем в методе set_coord
 
     def set_coord(self, x, y):#сеттер
         if self.check_value(x) and self.check_value(y):
