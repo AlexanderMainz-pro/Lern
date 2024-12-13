@@ -4,3 +4,4 @@ from pprint import pprint #работа с файлами
 
 import os #библиотека операционки
 import tkinter #для создания приложений, front
+from dataclasses import dataclass #декоратор по созданию классов
