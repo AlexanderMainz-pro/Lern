@@ -12,6 +12,9 @@ class Point:
         print("__bool__")
         return self.x == self.y
 
+class Point2:
+    pass
+
 p = Point(3, 4)#проверяем координаты на равенство
 if p:
     print("объект даёт True")
