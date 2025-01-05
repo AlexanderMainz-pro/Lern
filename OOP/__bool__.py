@@ -3,7 +3,7 @@ class Point:
         self.x = x
         self.y = y
 
-    def __len__(self):#возвращаем длину через магический метод
+    def __len__(self): #возвращаем длину через магический метод
         print("__len__")
         return  self.x * self.x + self.y * self.y
 
